@@ -1,0 +1,51 @@
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Project {
+  id          Int    @id @default(autoincrement())
+  title       String
+  skills      String
+  description String
+  githubUrl   String
+  projectUrl  String
+  imageUrl    String
+}
+
+model Work {
+  id          Int    @id @default(autoincrement())
+  position    String
+  company     String
+  tenure      String
+  location    String
+  description String
+}
+
+model Education {
+  id          Int    @id @default(autoincrement())
+  institute   String
+  tenure      String
+  location    String
+  description String
+}
+
+model Settings {
+  id                        Int    @id @default(autoincrement())
+  subtext                   String
+  button_label              String
+  skill_1_label             String
+  skill_2_label             String
+  skill_3_label             String
+  skill_1_description       String
+  skill_2_description       String
+  skill_3_description       String
+  navigation_home_label     String
+  navigation_projects_label String
+  navigation_cv_label       String
+  navigation_contact_label  String
+}
